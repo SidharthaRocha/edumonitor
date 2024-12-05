@@ -1,0 +1,21 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;800&display=swap');
+.scroll-image {
+    transition: transform 0.5s ease-in-out;
+}
+
+.scroll-image:hover {
+    transform: scale(1.05); /* Aumenta a imagem ao passar o mouse */
+}
+.scroll-image {
+    transition: opacity 0.5s ease, transform 0.5s ease; /* Transição de opacidade e transformação */
+}
+
+.fade-out {
+    opacity: 0; /* Oculta a imagem */
+    transform: translateY(20px); /* Move para baixo */
+}
+
+.fade-in {
+    opacity: 1; /* Mostra a imagem */
+    transform: translateY(0); /* Volta para a posição original */ }

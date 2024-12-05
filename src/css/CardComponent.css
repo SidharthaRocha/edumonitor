@@ -1,0 +1,9 @@
+.fade-out {
+    opacity: 0; /* Oculta o card */
+    transform: translateY(20px); /* Move para baixo */
+}
+
+.fade-in {
+    opacity: 1; /* Mostra o card */
+    transform: translateY(0); /* Volta para a posição original */
+}

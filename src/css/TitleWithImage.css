@@ -1,0 +1,13 @@
+.scroll-image {
+    transition: opacity 0.5s ease, transform 0.5s ease; /* Transição de opacidade e transformação */
+}
+
+.fade-out {
+    opacity: 0; /* Oculta a imagem */
+    transform: translateY(20px); /* Move para baixo */
+}
+
+.fade-in {
+    opacity: 1; /* Mostra a imagem */
+    transform: translateY(0); /* Volta para a posição original */
+}
