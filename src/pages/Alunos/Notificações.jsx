@@ -1,19 +1,28 @@
-import React, { useState } from 'react';
-import { FaBell, FaCheckCircle } from 'react-icons/fa';
+import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import { FaArrowLeft, FaCheckCircle } from 'react-icons/fa';
+import { useNotificacoes } from '../NotificacoesContext';
+import io from 'socket.io-client'; // Importando o cliente Socket.io
 
-const notificacoesData = [
-  { id: 1, titulo: 'Nota de Matemática', descricao: 'Sua nota na prova de Matemática foi publicada. Confira no seu desempenho!', lida: false },
-  { id: 2, titulo: 'Lembrete de Evento', descricao: 'Lembrete: a reunião de pais será amanhã às 18:00.', lida: false },
-  { id: 3, titulo: 'Nova Tarefa', descricao: 'Nova tarefa de História disponível. Prazo até sexta-feira.', lida: true },
-  { id: 4, titulo: 'Aviso de Feriado', descricao: 'Não haverá aula na próxima segunda-feira devido ao feriado.', lida: false },
-];
+const socket = io('http://localhost:8080'); // Conexão com o WebSocket
 
 const Notificacoes = () => {
-  const [notificacoes, setNotificacoes] = useState(notificacoesData);
+  const { notificacoes, setNotificacoes } = useNotificacoes();
+
+  useEffect(() => {
+    // Recebe a notificação enviada pelo servidor WebSocket
+    socket.on('message', (notificacao) => {
+      setNotificacoes((prev) => [notificacao, ...prev]);
+    });
+
+    return () => {
+      socket.off('message'); // Remove o ouvinte ao desmontar o componente
+    };
+  }, [setNotificacoes]);
 
   const marcarComoLida = (id) => {
-    setNotificacoes(prevState =>
-      prevState.map((notificacao) =>
+    setNotificacoes((prev) =>
+      prev.map((notificacao) =>
         notificacao.id === id ? { ...notificacao, lida: true } : notificacao
       )
     );
@@ -22,30 +31,27 @@ const Notificacoes = () => {
   return (
     <div className="min-h-screen bg-gradient-to-r from-blue-100 to-purple-200 py-12 px-6 sm:px-8 lg:px-12">
       <div className="max-w-7xl mx-auto">
-        {/* Título da Página */}
-        <h1 className="text-5xl font-extrabold text-[#4c3c92] text-center mb-12 animate__animated animate__fadeIn">
-          Minhas Notificações
-        </h1>
-
-        {/* Lista de Notificações */}
+        <div className="mb-6">
+          <Link to="/Dashboard-aluno" className="inline-flex items-center text-[#4c3c92] font-semibold text-lg">
+            <FaArrowLeft className="mr-2" />
+            Voltar
+          </Link>
+        </div>
+        <h1 className="text-5xl font-extrabold text-[#4c3c92] text-center mb-12">Minhas Notificações</h1>
         <div className="space-y-6">
           {notificacoes.map((notificacao) => (
             <div
               key={notificacao.id}
-              className={`bg-white rounded-xl shadow-lg p-6 transition-all transform ${
+              className={`bg-white rounded-xl shadow-lg p-6 ${
                 notificacao.lida ? 'bg-gray-100' : 'hover:shadow-2xl'
-              } hover:scale-105 ease-in-out duration-300`}
+              }`}
             >
               <div className="flex justify-between items-center mb-4">
                 <h2 className={`text-2xl font-semibold ${notificacao.lida ? 'text-gray-500' : 'text-[#4c3c92]'}`}>
                   {notificacao.titulo}
                 </h2>
                 {!notificacao.lida && (
-                  <button
-                    onClick={() => marcarComoLida(notificacao.id)}
-                    className="text-[#4c3c92] text-2xl"
-                    title="Marcar como lida"
-                  >
+                  <button onClick={() => marcarComoLida(notificacao.id)} className="text-[#4c3c92] text-2xl">
                     <FaCheckCircle />
                   </button>
                 )}
@@ -56,16 +62,9 @@ const Notificacoes = () => {
             </div>
           ))}
         </div>
-
-        {/* Botão de Ação */}
-        <div className="mt-12 text-center">
-          <button className="bg-[#4c3c92] text-white px-6 py-3 rounded-full text-xl font-semibold transition-transform transform hover:scale-105 hover:bg-[#3b2e74] duration-300">
-            Ver Mais Notificações
-          </button>
-        </div>
       </div>
     </div>
   );
-}
+};
 
 export default Notificacoes;

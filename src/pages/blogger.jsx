@@ -7,6 +7,7 @@ import Reunião from '../assets/reuniao_pais_escola.png';
 import Estudante from '../assets/estudando.png';
 import Aluno1 from '../assets/aluno.png'; // Imagem do aluno João
 import Aluno2 from '../assets/aluna.png'; // Imagem do aluno Maria
+import { motion } from 'framer-motion';
 
 const posts = [
   {
@@ -49,6 +50,7 @@ const Bloguer = () => {
   const [modalImage, setModalImage] = useState(null);
   const [isVisible, setIsVisible] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false); // Estado para o menu mobile
+  const [isOptionsOpen, setIsOptionsOpen] = useState(false); // Estado para o menu de opções
 
   const openModal = (image) => {
     setModalImage(image);
@@ -60,6 +62,15 @@ const Bloguer = () => {
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
+  };
+
+  const toggleOptions = () => {
+    setIsOptionsOpen(!isOptionsOpen); // Alterna as opções ao clicar nos três pontos
+  };
+
+  const menuVariants = {
+    open: { opacity: 1, y: 0, transition: { type: 'spring', stiffness: 300, damping: 20 } },
+    closed: { opacity: 0, y: -50, transition: { duration: 0.3 } },
   };
 
   useEffect(() => {
@@ -82,14 +93,9 @@ const Bloguer = () => {
             <Link to="/sobre" className="text-purple-700 hover:bg-purple-800 hover:text-white px-4 py-2 rounded transition-colors duration-200 font-poppins font-semibold">Sobre</Link>
           </div>
         </div>
-        {/* Botão de Login */}
-        <div className="hidden md:flex items-center">
-          <Link to="/aluno-professor" className="bg-purple-700 text-white rounded-full px-6 py-3 transition-colors duration-200 hover:bg-purple-800 font-poppins font-semibold">
-            Login
-          </Link>
-        </div>
+
         {/* Menu Mobile */}
-        <div className="md:hidden">
+        <div className="md:hidden flex items-center">
           <button onClick={toggleMenu} className="text-purple-700">
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16m-7 6h7" />
@@ -100,15 +106,39 @@ const Bloguer = () => {
 
       {/* Dropdown Mobile */}
       {isMenuOpen && (
-        <div className="fixed top-0 left-0 w-full h-full bg-white z-40 flex flex-col items-center justify-center space-y-6">
+        <motion.div
+          className="fixed inset-0 bg-white z-40 flex flex-col items-center justify-center space-y-6 p-6"
+          initial="closed"
+          animate="open"
+          exit="closed"
+          variants={menuVariants}
+        >
           <Link to="/" className="text-purple-700 text-xl font-poppins font-semibold" onClick={toggleMenu}>Home</Link>
           <Link to="/blog" className="text-purple-700 text-xl font-poppins font-semibold" onClick={toggleMenu}>Blog</Link>
           <Link to="/sobre" className="text-purple-700 text-xl font-poppins font-semibold" onClick={toggleMenu}>Sobre</Link>
-          <Link to="/aluno-professor" className="bg-purple-700 text-white px-6 py-2 rounded-full text-xl font-poppins font-semibold" onClick={toggleMenu}>Login</Link>
+          <button onClick={toggleOptions} className="text-purple-700 text-xl font-poppins font-semibold">
+            &#x2022;&#x2022;&#x2022; {/* Ícone de três pontos */}
+          </button>
+
+          {/* Menu de opções */}
+          {isOptionsOpen && (
+            <motion.div
+              className="flex flex-col space-y-4 mt-4"
+              initial={{ opacity: 0, y: -50 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -50 }}
+              transition={{ duration: 0.3 }}
+            >
+              <Link to="/aluno-professor" className="bg-purple-700 text-white px-6 py-2 rounded-full text-xl font-poppins font-semibold">
+                Login
+              </Link>
+            </motion.div>
+          )}
+
           <button onClick={toggleMenu} className="absolute top-6 right-6 text-2xl text-purple-700">
             &times;
           </button>
-        </div>
+        </motion.div>
       )}
 
       {/* Main Content */}

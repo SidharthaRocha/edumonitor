@@ -33,7 +33,7 @@ const Sobre = () => {
           </Link>
         </div>
         <div className="md:hidden">
-          <button onClick={toggleMenu} className="text-purple-700">
+          <button onClick={toggleMenu} className="text-purple-700" aria-label="Abrir menu">
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16m-7 6h7" />
             </svg>
@@ -44,7 +44,7 @@ const Sobre = () => {
       {/* Mobile Menu */}
       {isMenuOpen && (
         <motion.div
-          className="fixed inset-0 bg-white z-40 flex flex-col items-center justify-center space-y-6 p-6"
+          className="fixed inset-0 bg-white z-40 flex flex-col items-center justify-center space-y-6 p-6 shadow-lg"
           initial="closed"
           animate="open"
           exit="closed"
