@@ -36,8 +36,8 @@ function DashboardProfessor({ theme }) {
               <li>
                 <NavLink
                   to="/Meusalunos-professor"
-                  className={`text-white hover:text-indigo-300 ${theme === 'dark' ? 'hover:text-indigo-400' : ''} transition-all duration-300 ease-in-out flex items-center space-x-2`}
-                  activeClassName="font-semibold"
+                  className={`text-white hover:text-indigo-300 ${theme === 'dark' ? 'hover:text-indigo-400' : ''} transition-all duration-300 ease-in-out flex items-center space-x-2 font-semibold`}
+                
                 >
                   <FaUser className="text-lg" />
                   <span>Meus Alunos</span>
@@ -46,8 +46,8 @@ function DashboardProfessor({ theme }) {
               <li>
                 <NavLink
                   to="/desempenho-professor"
-                  className={`text-white hover:text-indigo-300 ${theme === 'dark' ? 'hover:text-indigo-400' : ''} transition-all duration-300 ease-in-out flex items-center space-x-2`}
-                  activeClassName="font-semibold"
+                  className={`text-white hover:text-indigo-300 ${theme === 'dark' ? 'hover:text-indigo-400' : ''} transition-all duration-300 ease-in-out flex items-center space-x-2 font-semibold`}
+                  
                 >
                   <FaChartLine className="text-lg" />
                   <span>Desempenho</span>
@@ -56,8 +56,8 @@ function DashboardProfessor({ theme }) {
               <li>
                 <NavLink
                   to="/notificacoes-professor"
-                  className={`text-white hover:text-indigo-300 ${theme === 'dark' ? 'hover:text-indigo-400' : ''} transition-all duration-300 ease-in-out flex items-center space-x-2`}
-                  activeClassName="font-semibold"
+                  className={`text-white hover:text-indigo-300 ${theme === 'dark' ? 'hover:text-indigo-400' : ''} transition-all duration-300 ease-in-out flex items-center space-x-2 font-semibold`}
+                  
                 >
                   <FaBell className="text-lg" />
                   <span>Notificações</span>
@@ -66,8 +66,8 @@ function DashboardProfessor({ theme }) {
               <li>
                 <NavLink
                   to="/calendario-professor"
-                  className={`text-white hover:text-indigo-300 ${theme === 'dark' ? 'hover:text-indigo-400' : ''} transition-all duration-300 ease-in-out flex items-center space-x-2`}
-                  activeClassName="font-semibold"
+                  className={`text-white hover:text-indigo-300 ${theme === 'dark' ? 'hover:text-indigo-400' : ''} transition-all duration-300 ease-in-out flex items-center space-x-2 font-semibold`}
+                
                 >
                   <FaCalendarAlt className="text-lg" />
                   <span>Calendário</span>
@@ -76,8 +76,8 @@ function DashboardProfessor({ theme }) {
               <li>
                 <NavLink
                   to="/configuracoes-professor"
-                  className={`text-white hover:text-indigo-300 ${theme === 'dark' ? 'hover:text-indigo-400' : ''} transition-all duration-300 ease-in-out flex items-center space-x-2`}
-                  activeClassName="font-semibold"
+                  className={`text-white hover:text-indigo-300 ${theme === 'dark' ? 'hover:text-indigo-400' : ''} transition-all duration-300 ease-in-out flex items-center space-x-2 font-semibold`}
+                  
                 >
                   <FaCogs className="text-lg" />
                   <span>Configurações</span>
@@ -86,8 +86,8 @@ function DashboardProfessor({ theme }) {
               <li>
                 <NavLink
                   to="/relatorios-professor"
-                  className={`text-white hover:text-indigo-300 ${theme === 'dark' ? 'hover:text-indigo-400' : ''} transition-all duration-300 ease-in-out flex items-center space-x-2`}
-                  activeClassName="font-semibold"
+                  className={`text-white hover:text-indigo-300 ${theme === 'dark' ? 'hover:text-indigo-400' : ''} transition-all duration-300 ease-in-out flex items-center space-x-2 font-semibold`}
+                  
                 >
                   <FaFileAlt className="text-lg" />
                   <span>Relatórios</span>

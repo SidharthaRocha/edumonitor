@@ -36,8 +36,8 @@ function DashboardAluno({ theme }) {
               <li>
                 <NavLink
                   to="/meudesempenho-aluno"
-                  className={`text-white hover:text-indigo-300 ${theme === 'dark' ? 'hover:text-indigo-400' : ''} transition-all duration-300 ease-in-out flex items-center space-x-2`}
-                  activeClassName="font-semibold"
+                  className={`text-white hover:text-indigo-300 ${theme === 'dark' ? 'hover:text-indigo-400' : ''} transition-all duration-300 ease-in-out flex items-center space-x-2 font-semibold`}
+                  
                 >
                   <FaUser className="text-lg" />
                   <span>Meu Desempenho</span>
@@ -46,8 +46,8 @@ function DashboardAluno({ theme }) {
               <li>
                 <NavLink
                   to="/meucomportamento-aluno"
-                  className={`text-white hover:text-indigo-300 ${theme === 'dark' ? 'hover:text-indigo-400' : ''} transition-all duration-300 ease-in-out flex items-center space-x-2`}
-                  activeClassName="font-semibold"
+                  className={`text-white hover:text-indigo-300 ${theme === 'dark' ? 'hover:text-indigo-400' : ''} transition-all duration-300 ease-in-out flex items-center space-x-2 font-semibold`}
+                 
                 >
                   <FaChartLine className="text-lg" />
                   <span>Meu Comportamento</span>
@@ -55,9 +55,9 @@ function DashboardAluno({ theme }) {
               </li>
               <li>
                 <NavLink
-                  to="/notificacoes-alunos"
-                  className={`text-white hover:text-indigo-300 ${theme === 'dark' ? 'hover:text-indigo-400' : ''} transition-all duration-300 ease-in-out flex items-center space-x-2`}
-                  activeClassName="font-semibold"
+                  to="/notificacoes-aluno"
+                  className={`text-white hover:text-indigo-300 ${theme === 'dark' ? 'hover:text-indigo-400' : ''} transition-all duration-300 ease-in-out flex items-center space-x-2 font-semibold`}
+                  
                 >
                   <FaBell className="text-lg" />
                   <span>Notificações</span>
@@ -66,8 +66,8 @@ function DashboardAluno({ theme }) {
               <li>
                 <NavLink
                   to="/calendario-aluno"
-                  className={`text-white hover:text-indigo-300 ${theme === 'dark' ? 'hover:text-indigo-400' : ''} transition-all duration-300 ease-in-out flex items-center space-x-2`}
-                  activeClassName="font-semibold"
+                  className={`text-white hover:text-indigo-300 ${theme === 'dark' ? 'hover:text-indigo-400' : ''} transition-all duration-300 ease-in-out flex items-center space-x-2 font-semibold`}
+                  
                 >
                   <FaCalendarAlt className="text-lg" />
                   <span>Calendário</span>
@@ -76,8 +76,8 @@ function DashboardAluno({ theme }) {
               <li>
                 <NavLink
                   to="/recursos-aluno"
-                  className={`text-white hover:text-indigo-300 ${theme === 'dark' ? 'hover:text-indigo-400' : ''} transition-all duration-300 ease-in-out flex items-center space-x-2`}
-                  activeClassName="font-semibold"
+                  className={`text-white hover:text-indigo-300 ${theme === 'dark' ? 'hover:text-indigo-400' : ''} transition-all duration-300 ease-in-out flex items-center space-x-2 font-semibold`}
+                  
                 >
                   <FaCogs className="text-lg" />
                   <span>Recursos</span>

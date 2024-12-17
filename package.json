@@ -10,12 +10,14 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
+    "deploy": "gh-pages -d dist",
+    "start": "HOST=0.0.0.0 react-scripts start"
   },
   "dependencies": {
     "@headlessui/react": "^2.2.0",
     "@heroicons/react": "^2.1.5",
     "animate.css": "^4.1.1",
+    "axios": "^1.7.9",
     "chart.js": "^4.4.6",
     "firebase": "^11.0.2",
     "framer-motion": "^11.11.16",

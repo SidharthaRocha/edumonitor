@@ -6,6 +6,7 @@ import Sobre from './pages/sobre';
 import AlunoProfessor from './pages/sistema-de-login';
 import Informação from './pages/informação';
 import Professor from './pages/Professor'
+import { NotificacoesProvider } from './pages/NotificacoesContext';
 import CadastroProfessor from './pages/CadastroProfessor'
 import Aluno from './pages/Aluno'
 import Cadastro from './pages/CadastroAluno'
@@ -54,7 +55,9 @@ const App = () => {
   };
 
 return (
+
     <BrowserRouter>
+    <NotificacoesProvider>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/blog" element={<Blog />} />
@@ -80,7 +83,9 @@ return (
         <Route path="/recursos-aluno" element={<RecursosAluno />} />
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
+      </NotificacoesProvider>
     </BrowserRouter>
+    
   );
 };
 
